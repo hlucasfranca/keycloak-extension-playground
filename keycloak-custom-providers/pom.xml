@@ -1,0 +1,137 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.baeldung</groupId>
+    <artifactId>keycloak-custom-providers</artifactId>
+    <version>0.1.0-SNAPSHOT</version>
+    <packaging>jar</packaging>
+
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.2.6.RELEASE</version>
+        <relativePath />
+    </parent>
+
+    <dependencies>
+    
+        <dependency>
+            <groupId>org.keycloak</groupId>
+            <artifactId>keycloak-core</artifactId>
+            <version>${keycloak.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.keycloak</groupId>
+            <artifactId>keycloak-server-spi</artifactId>
+            <version>${keycloak.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.keycloak</groupId>
+            <artifactId>keycloak-server-spi-private</artifactId>
+            <version>${keycloak.version}</version>
+        </dependency>
+        
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>${slf4j.version}</version>
+        </dependency>
+
+        <!-- test -->
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+
+
+
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.18.20</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.keycloak</groupId>
+            <artifactId>keycloak-services</artifactId>
+            <version>${keycloak.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.h2database</groupId>
+            <artifactId>h2</artifactId>
+            <scope>test</scope>
+        </dependency>
+
+
+        <dependency>
+            <groupId>io.rest-assured</groupId>
+            <artifactId>rest-assured</artifactId>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+
+
+
+    <build>
+
+        <plugins>
+            <plugin>
+                <artifactId>maven-resources-plugin</artifactId>
+                <version>2.6</version>
+                <executions>
+                    <execution>
+                        <id>copy-resources</id>
+                        <phase>validate</phase>
+                        <goals>
+                            <goal>copy-resources</goal>
+                        </goals>
+                        <configuration>
+                            <outputDirectory>target/classes/theme-resources</outputDirectory>
+                            <includeEmptyDirs>true</includeEmptyDirs>
+                            <resources>
+                                <resource>
+                                    <directory>src/main/resources/theme-resources</directory>
+                                    <filtering>false</filtering>
+                                </resource>
+                            </resources>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+
+<!--            <plugin>-->
+<!--                <groupId>org.apache.maven.plugins</groupId>-->
+<!--                <artifactId>maven-surefire-plugin</artifactId>-->
+<!--                <configuration>-->
+<!--                    <excludes>-->
+<!--                        <exclude>**/*LiveTest.java</exclude>-->
+<!--                    </excludes>-->
+<!--                </configuration>-->
+<!--            </plugin>-->
+        </plugins>
+    </build>
+
+    <properties>
+        <!-- non-dependencies -->
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <java.version>11</java.version>
+
+        <keycloak.version>11.0.2</keycloak.version>
+
+        <!-- these should be updated together with Keycloak -->
+        <!-- check keycloak-dependencies-server-all effective pom -->
+        <infinispan.version>10.1.8.Final</infinispan.version>
+        <resteasy.version>3.12.1.Final</resteasy.version>
+    </properties>
+
+
+
+</project>

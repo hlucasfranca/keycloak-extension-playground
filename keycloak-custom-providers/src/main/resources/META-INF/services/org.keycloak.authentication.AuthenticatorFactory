@@ -1,0 +1,4 @@
+com.demo.anthentication.authenticator.sms.KeycloakSmsAuthenticatorFactory
+com.demo.anthentication.authenticator.user.UserAuthenticatorFactory
+com.demo.anthentication.authenticator.risk.RiskAuthenticatorFactory
+com.demo.anthentication.authenticator.password.PasswordAuthenticatorFactory

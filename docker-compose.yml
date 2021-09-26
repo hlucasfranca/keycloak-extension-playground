@@ -16,6 +16,7 @@ services:
   keycloak:
       volumes:
         - ./zz_imports:/opt/jboss/keycloak/imports
+        - ./deployments:/opt/jboss/keycloak/standalone/deployments/
       image: jboss/keycloak:15.0.2
       environment:
         DB_VENDOR: POSTGRES
