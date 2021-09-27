@@ -115,11 +115,21 @@
                     }
                 });
 
+                //let responseText = "sucesso";
+                //document.querySelector("body").parentElement.innerHTML = responseText;
+
+
                 // if (faceAuthResponse.status === 200) {
                 //     console.log("proceed...");
                 //     window.location.reload();
                 //     return;
                 // }
+
+                if (faceAuthResponse.type === 'opaqueredirect') {
+                    window.onbeforeunload = null;
+                    window.location.href = faceAuthResponse.url;
+                    return;                    
+                }
 
                 if (faceAuthResponse.status === 302 || faceAuthResponse.type === "opaqueredirect") {
                     window.location.href = faceAuthResponse.url;
@@ -283,8 +293,8 @@
         <form id="kc-u2f-login-form" class="${properties.kcFormClass!}" action="${url.loginAction}" method="post">
             <div class="${properties.kcFormGroupClass!}">
                 <div id="kc-form-buttons" class="${properties.kcFormButtonsClass!}">
-                    <#--                    <input class="${properties.kcButtonClass!} ${properties.kcButtonPrimaryClass!} ${properties.kcButtonLargeClass!}"-->
-                    <#--                           type="submit" value="${msg("doSubmit")}"/>-->
+                    <input class="${properties.kcButtonClass!} ${properties.kcButtonPrimaryClass!} ${properties.kcButtonLargeClass!}"
+                                               type="submit" value="${msg("doSubmit")}"/>
                     <input class="${properties.kcButtonClass!} ${properties.kcButtonPrimaryClass!} ${properties.kcButtonLargeClass!}"
                            type="submit" name="cancel" value="${msg("doCancel")}"/>
                 </div>
