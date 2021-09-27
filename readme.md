@@ -74,11 +74,11 @@ You can access the local Keycloak instance via the URL: `http://localhost:8081/a
 ```
 -Dkeycloak.bind.address=127.0.0.1
 -Djava.net.preferIPv4Stack=true
--Dkeycloak.connectionsJpa.url=jdbc:postgresql://localhost:5432/keycloak_playground
+-Dkeycloak.connectionsJpa.url=jdbc:postgresql://localhost:5432/keycloak
 -Dkeycloak.connectionsJpa.driver=org.postgresql.Driver
 -Dkeycloak.connectionsJpa.driverDialect=org.hibernate.dialect.PostgreSQLDialect
 -Dkeycloak.connectionsJpa.user=keycloak
--Dkeycloak.connectionsJpa.password=keycloak
+-Dkeycloak.connectionsJpa.password=password
 -Dkeycloak.connectionsJpa.showSql=true
 -Dkeycloak.connectionsJpa.formatSql=true
 -Dprofile=COMMUNITY
